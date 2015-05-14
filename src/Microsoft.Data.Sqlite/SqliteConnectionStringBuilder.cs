@@ -32,9 +32,9 @@ namespace Microsoft.Data.Sqlite
             _validKeywords = validKeywords;
 
             _keywords = new Dictionary<string, Keywords>(1, StringComparer.OrdinalIgnoreCase)
-            {
-                [DataSourceKeyword] = Keywords.DataSource
-            };
+                {
+                    [DataSourceKeyword] = Keywords.DataSource
+                };
         }
 
         public SqliteConnectionStringBuilder()

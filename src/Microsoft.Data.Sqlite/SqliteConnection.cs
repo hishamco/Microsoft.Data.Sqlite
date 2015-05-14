@@ -44,10 +44,12 @@ namespace Microsoft.Data.Sqlite
         }
 
         public override string Database => MainDatabaseName;
+
         public override string DataSource =>
             _state == ConnectionState.Open
                 ? NativeMethods.sqlite3_db_filename(_db, MainDatabaseName)
                 : _connectionStringBuilder.DataSource;
+
         public override string ServerVersion => NativeMethods.sqlite3_libversion();
         public override ConnectionState State => _state;
         protected internal SqliteTransaction Transaction { get; set; }
@@ -80,7 +82,8 @@ namespace Microsoft.Data.Sqlite
 
         public override void Close()
         {
-            if (_db == null || _db.IsInvalid)
+            if (_db == null
+                || _db.IsInvalid)
             {
                 return;
             }
@@ -99,12 +102,12 @@ namespace Microsoft.Data.Sqlite
         }
 
         // NB: Other providers don't set Transaction
-        public virtual new SqliteCommand CreateCommand() => new SqliteCommand { Connection = this, Transaction = Transaction };
+        public new virtual SqliteCommand CreateCommand() => new SqliteCommand { Connection = this, Transaction = Transaction };
         protected override DbCommand CreateDbCommand() => CreateCommand();
-        public virtual new SqliteTransaction BeginTransaction() => BeginTransaction(IsolationLevel.Unspecified);
+        public new virtual SqliteTransaction BeginTransaction() => BeginTransaction(IsolationLevel.Unspecified);
         protected override DbTransaction BeginDbTransaction(IsolationLevel isolationLevel) => BeginTransaction(isolationLevel);
 
-        public virtual new SqliteTransaction BeginTransaction(IsolationLevel isolationLevel)
+        public new virtual SqliteTransaction BeginTransaction(IsolationLevel isolationLevel)
         {
             if (_state != ConnectionState.Open)
             {

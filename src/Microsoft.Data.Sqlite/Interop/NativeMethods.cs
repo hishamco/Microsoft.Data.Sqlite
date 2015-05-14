@@ -4,17 +4,15 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-
 #if NET45 || DNX451 || DNXCORE50
-
 using Microsoft.Framework.Internal;
-
 #if DNX451 || DNXCORE50
 using System.IO;
 using System.Reflection;
 using Microsoft.Framework.Runtime;
 using Microsoft.Framework.Runtime.Infrastructure;
 using Microsoft.Framework.DependencyInjection;
+
 #endif
 
 #endif
@@ -45,7 +43,7 @@ namespace Microsoft.Data.Sqlite.Interop
                         installPath = Path.GetDirectoryName(installPath);
                     }
 
-                    loaded =  NativeLibraryLoader.TryLoad("sqlite3", Path.Combine(installPath, "redist"));
+                    loaded = NativeLibraryLoader.TryLoad("sqlite3", Path.Combine(installPath, "redist"));
                 }
 #endif
 
@@ -168,7 +166,7 @@ namespace Microsoft.Data.Sqlite.Interop
                 }
             }
         }
-        
+
         [DllImport("sqlite3", EntryPoint = "sqlite3_errmsg16", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr sqlite3_errmsg16_raw(Sqlite3Handle db);
 
