@@ -160,7 +160,7 @@ namespace Microsoft.Data.Sqlite
                 //     in unexpected corner cases, but it's the best we can do without re-parsing SQL
                 if (NativeMethods.sqlite3_stmt_readonly(stmt) != 0)
                 {
-                    stmts.Enqueue(Tuple.Create(stmt, rc != Constants.SQLITE_DONE));
+                    stmts.Enqueue(Tuple.Create(stmt, rc != Sqlite3Constants.SQLITE_DONE));
                 }
                 else
                 {

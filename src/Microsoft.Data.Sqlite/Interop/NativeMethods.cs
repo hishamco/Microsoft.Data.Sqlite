@@ -21,7 +21,7 @@ using Microsoft.Framework.DependencyInjection;
 
 namespace Microsoft.Data.Sqlite.Interop
 {
-    internal static class NativeMethods
+    public static class NativeMethods
     {
 #if NET45 || DNX451 || DNXCORE50
         static NativeMethods()

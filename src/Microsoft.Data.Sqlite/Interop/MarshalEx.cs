@@ -45,9 +45,9 @@ namespace Microsoft.Data.Sqlite.Interop
 
         public static void ThrowExceptionForRC(int rc, Sqlite3Handle db)
         {
-            if (rc == Constants.SQLITE_OK
-                || rc == Constants.SQLITE_ROW
-                || rc == Constants.SQLITE_DONE)
+            if (rc == Sqlite3Constants.SQLITE_OK
+                || rc == Sqlite3Constants.SQLITE_ROW
+                || rc == Sqlite3Constants.SQLITE_DONE)
             {
                 return;
             }

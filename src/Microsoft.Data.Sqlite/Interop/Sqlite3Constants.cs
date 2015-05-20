@@ -5,7 +5,7 @@ using System;
 
 namespace Microsoft.Data.Sqlite.Interop
 {
-    internal static class Constants
+    public static class Sqlite3Constants
     {
         public const int SQLITE_OK = 0;
 

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace Microsoft.Data.Sqlite.Interop
 {
-    internal class Sqlite3StmtHandle : SafeHandle
+    public class Sqlite3StmtHandle : SafeHandle
     {
         private Sqlite3StmtHandle()
             : base(IntPtr.Zero, ownsHandle: true)
@@ -20,7 +20,7 @@ namespace Microsoft.Data.Sqlite.Interop
             var rc = NativeMethods.sqlite3_finalize(handle);
             handle = IntPtr.Zero;
 
-            return rc == Constants.SQLITE_OK;
+            return rc == Sqlite3Constants.SQLITE_OK;
         }
     }
 }

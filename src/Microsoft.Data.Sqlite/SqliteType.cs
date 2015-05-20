@@ -7,9 +7,9 @@ namespace Microsoft.Data.Sqlite
 {
     public enum SqliteType
     {
-        Integer = Constants.SQLITE_INTEGER,
-        Real = Constants.SQLITE_FLOAT,
-        Text = Constants.SQLITE_TEXT,
-        Blob = Constants.SQLITE_BLOB
+        Integer = Sqlite3Constants.SQLITE_INTEGER,
+        Real = Sqlite3Constants.SQLITE_FLOAT,
+        Text = Sqlite3Constants.SQLITE_TEXT,
+        Blob = Sqlite3Constants.SQLITE_BLOB
     }
 }
